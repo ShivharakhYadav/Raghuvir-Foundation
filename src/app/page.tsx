@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import { usePathname } from 'next/navigation';
 
 import {
@@ -17,8 +17,11 @@ import { StyleProvider } from '@ant-design/cssinjs';
 import {
   BarsOutlined,
   BulbOutlined,
+  DollarOutlined,
   LeftCircleOutlined,
   RightCircleOutlined,
+  SmileOutlined,
+  UserOutlined,
 } from '@ant-design/icons';
 
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -62,7 +65,7 @@ const items: MenuProps['items'] = [
 ];
 
 type inspireType = {
-  icon: any;
+  icon: ReactNode;
   title: string;
   paragraph: string;
 };
@@ -253,8 +256,17 @@ const InspireCard = ({ item }: { item: inspireType }) => {
         }
       }
     >
-      {/* {item.icon} */}
-      <BarsOutlined />
+      <div
+        style={{
+          height: 100,
+          width: 100,
+          borderRadius: '50%',
+          border: '2px solid black',
+        }}
+        className='mx-auto'
+      >
+        {item.icon}
+      </div>
       <Typography.Title level={3} style={{ margin: 0 }}>
         {item.title}
       </Typography.Title>
@@ -267,26 +279,26 @@ const InspireCard = ({ item }: { item: inspireType }) => {
 
 const inspiredArray: Array<inspireType> = [
   {
-    icon: '',
+    icon: <BulbOutlined className='h-full' />,
     title: 'Get Inspired',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
   },
   {
-    icon: '',
-    title: 'Get Inspired',
+    icon: <DollarOutlined className='h-full' />,
+    title: 'Give Donation',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
   },
   {
-    icon: '',
-    title: 'Get Inspired',
+    icon: <UserOutlined className='h-full' />,
+    title: 'Become A Volunteer',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
   },
   {
-    icon: '',
-    title: 'Get Inspired',
+    icon: <SmileOutlined className='h-full' />,
+    title: 'Help The Children',
     paragraph:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
   },
