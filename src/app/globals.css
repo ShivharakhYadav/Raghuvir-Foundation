@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  /* overflow-y: hidden; */
+}
+
 .text-lg1 {
   font-size: 20px;
 }
@@ -10,10 +14,30 @@
   display: none;
 }
 
-.test {
+.swiper:hover .swiper-button-prev,
+.swiper:hover .swiper-button-next {
+  opacity: 1;
 }
 
-#test.visible {
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next {
+  opacity: 0.3;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  /* background-color: #ffffff; */
+}
+
+::-webkit-scrollbar-track {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #001529;
+  border-radius: 40px;
 }
 
 @media (max-width: 1480px) {
