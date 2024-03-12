@@ -11,6 +11,7 @@ import {
   Card,
   Row,
   Col,
+  Avatar,
 } from 'antd';
 import type { MenuProps } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
@@ -35,6 +36,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 const { Content } = Layout;
+const { Meta } = Card;
 
 const items: MenuProps['items'] = [
   {
@@ -224,6 +226,25 @@ const App: React.FC = () => {
           })}
         </Row>
       </div>
+      <div style={{ marginTop: 20, padding: '0 20px' }}>
+        <Row gutter={[16, 16]}>
+          {serviceArray?.map((item) => {
+            return (
+              <Col
+                xs={24}
+                sm={12}
+                md={8}
+                lg={8}
+                xl={8}
+                xxl={8}
+                key={item.title}
+              >
+                <ServiceCard item={item} />
+              </Col>
+            );
+          })}
+        </Row>
+      </div>
     </Content>
   );
 };
@@ -246,16 +267,7 @@ const Title = () => {
 
 const InspireCard = ({ item }: { item: inspireType }) => {
   return (
-    <Card
-      style={{ textAlign: 'center', fontSize: 40 }}
-      styles={
-        {
-          // body: {
-          //   maxWidth: 300,
-          // },
-        }
-      }
-    >
+    <Card style={{ textAlign: 'center', fontSize: 40 }}>
       <div
         style={{
           height: 100,
@@ -303,3 +315,66 @@ const inspiredArray: Array<inspireType> = [
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
   },
 ];
+
+type serviceType = {
+  title: string;
+  description: string;
+  imageUrl: string;
+};
+const serviceArray: Array<serviceType> = [
+  {
+    title: 'MEDICAL FACILITIES',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
+    imageUrl: '/service/1.jpg',
+  },
+  {
+    title: `LET'S BUILD SOME HOMES`,
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
+    imageUrl: '/service/2.jpg',
+  },
+  {
+    title: 'PURE WATER FOR POOR PEOPLE',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
+    imageUrl: '/service/3.jpg',
+  },
+  {
+    title: 'RAISE FUND FOR HEALTHY FOOD',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
+    imageUrl: '/service/4.jpg',
+  },
+  {
+    title: 'MASSIVE DONATION TO POOR',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
+    imageUrl: '/service/5.jpg',
+  },
+  {
+    title: 'PROMOTING THE RIGHTS OF CHILDREN',
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
+    imageUrl: '/service/6.jpg',
+  },
+];
+
+const ServiceCard = ({ item }: { item: serviceType }) => {
+  return (
+    <Card
+      hoverable
+      style={{ width: 340 }}
+      cover={
+        <img
+          alt='example'
+          // src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+          src={item.imageUrl}
+        />
+      }
+    >
+      <Typography.Title level={3}>{item.title}</Typography.Title>
+      <Typography.Text>{item.description}</Typography.Text>
+    </Card>
+  );
+};
