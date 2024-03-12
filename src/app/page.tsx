@@ -1,6 +1,7 @@
 'use client';
 import React, { ReactNode, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 import {
   Menu,
@@ -12,6 +13,7 @@ import {
   Row,
   Col,
   Avatar,
+  Flex,
 } from 'antd';
 import type { MenuProps } from 'antd';
 import { StyleProvider } from '@ant-design/cssinjs';
@@ -19,6 +21,8 @@ import {
   BarsOutlined,
   BulbOutlined,
   DollarOutlined,
+  FacebookOutlined,
+  InstagramOutlined,
   LeftCircleOutlined,
   RightCircleOutlined,
   SmileOutlined,
@@ -245,6 +249,18 @@ const App: React.FC = () => {
           })}
         </Row>
       </div>
+      {/* Our Team */}
+      <div style={{ marginTop: 20, padding: '0 20px' }}>
+        <Row gutter={[16, 16]}>
+          {teamArray?.map((item) => {
+            return (
+              <Col xs={24} sm={12} md={8} lg={8} xl={8} xxl={8} key={item.name}>
+                <TeamCard item={item} />
+              </Col>
+            );
+          })}
+        </Row>
+      </div>
     </Content>
   );
 };
@@ -375,6 +391,79 @@ const ServiceCard = ({ item }: { item: serviceType }) => {
     >
       <Typography.Title level={3}>{item.title}</Typography.Title>
       <Typography.Text>{item.description}</Typography.Text>
+    </Card>
+  );
+};
+
+type social = {
+  instagram: string;
+  facebook: string;
+};
+
+type teamType = {
+  imageUrl: string;
+  name: string;
+  social: social;
+};
+
+const teamArray: Array<teamType> = [
+  {
+    imageUrl: '/images/team/1.jpg',
+    name: 'Hover',
+    social: {
+      facebook: 'test',
+      instagram: 'test1',
+    },
+  },
+  {
+    imageUrl: '/images/team/2.jpg',
+    name: 'Hover',
+    social: {
+      facebook: 'test',
+      instagram: 'test1',
+    },
+  },
+  {
+    imageUrl: '/images/team/3.jpg',
+    name: 'Hover',
+    social: {
+      facebook: 'test',
+      instagram: 'test1',
+    },
+  },
+  // {
+  //   imageUrl: '/images/team/4.jpg',
+  //   name: 'Hover',
+  //   social: {
+  //     facebook: 'test',
+  //     instagram: 'test1',
+  //   },
+  // },
+];
+
+const TeamCard = ({ item }: { item: teamType }) => {
+  return (
+    <Card
+      hoverable
+      style={{ width: 340 }}
+      cover={
+        <img
+          alt='example'
+          // src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+          src={item.imageUrl}
+        />
+      }
+    >
+      <Typography.Title level={3}>{item.name}</Typography.Title>
+      {/* <Typography.Text>{item.description}</Typography.Text> */}
+      <Flex gap='small'>
+        <Link href={item.social.instagram}>
+          <InstagramOutlined style={{ fontSize: 30 }} />
+        </Link>
+        <Link href={item.social.facebook}>
+          <FacebookOutlined style={{ fontSize: 30 }} />
+        </Link>
+      </Flex>
     </Card>
   );
 };
