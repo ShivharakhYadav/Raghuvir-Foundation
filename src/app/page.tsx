@@ -1,36 +1,12 @@
 'use client';
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
 
-import {
-  Menu,
-  Layout,
-  Typography,
-  Carousel,
-  Image,
-  Card,
-  Row,
-  Col,
-  Avatar,
-  Flex,
-} from 'antd';
+import { Menu, Layout, Typography, Row, Col } from 'antd';
 import type { MenuProps } from 'antd';
-import { StyleProvider } from '@ant-design/cssinjs';
-import {
-  BarsOutlined,
-  BulbOutlined,
-  DollarOutlined,
-  FacebookOutlined,
-  InstagramOutlined,
-  LeftCircleOutlined,
-  RightCircleOutlined,
-  SmileOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
 
+// Import Swiper
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { SwiperOptions } from 'swiper/types';
 
@@ -39,8 +15,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+// Static Data
+import { inspiredArray, serviceArray, teamArray } from '@/static-data/static';
+import { InspireCard, ServiceCard, TeamCard } from '@/components/Cards';
+import { BarsOutlined } from '@ant-design/icons';
+
+// Destructure
 const { Content } = Layout;
-const { Meta } = Card;
 
 const items: MenuProps['items'] = [
   {
@@ -69,12 +50,6 @@ const items: MenuProps['items'] = [
     className: 'd',
   },
 ];
-
-type inspireType = {
-  icon: ReactNode;
-  title: string;
-  paragraph: string;
-};
 
 const App: React.FC = () => {
   const u = usePathname();
@@ -220,7 +195,7 @@ const App: React.FC = () => {
                 sm={12}
                 md={8}
                 lg={8}
-                xl={6}
+                xl={8}
                 xxl={8}
                 key={item.title}
               >
@@ -230,6 +205,12 @@ const App: React.FC = () => {
           })}
         </Row>
       </div>
+
+      {/* <div className='main'>
+        {inspiredArray?.map((item) => {
+          return <InspireCard item={item} />;
+        })}
+      </div> */}
       <div style={{ marginTop: 20, padding: '0 20px' }}>
         <Row gutter={[16, 16]}>
           {serviceArray?.map((item) => {
@@ -278,192 +259,5 @@ const Title = () => {
     >
       Raghuvir Foundation
     </Typography>
-  );
-};
-
-const InspireCard = ({ item }: { item: inspireType }) => {
-  return (
-    <Card style={{ textAlign: 'center', fontSize: 40 }}>
-      <div
-        style={{
-          height: 100,
-          width: 100,
-          borderRadius: '50%',
-          border: '2px solid black',
-        }}
-        className='mx-auto'
-      >
-        {item.icon}
-      </div>
-      <Typography.Title level={3} style={{ margin: 0 }}>
-        {item.title}
-      </Typography.Title>
-      <Typography.Title level={5} style={{ margin: 0 }}>
-        {item.paragraph}
-      </Typography.Title>
-    </Card>
-  );
-};
-
-const inspiredArray: Array<inspireType> = [
-  {
-    icon: <BulbOutlined className='h-full' />,
-    title: 'Get Inspired',
-    paragraph:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-  },
-  {
-    icon: <DollarOutlined className='h-full' />,
-    title: 'Give Donation',
-    paragraph:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-  },
-  {
-    icon: <UserOutlined className='h-full' />,
-    title: 'Become A Volunteer',
-    paragraph:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-  },
-  {
-    icon: <SmileOutlined className='h-full' />,
-    title: 'Help The Children',
-    paragraph:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod',
-  },
-];
-
-type serviceType = {
-  title: string;
-  description: string;
-  imageUrl: string;
-};
-const serviceArray: Array<serviceType> = [
-  {
-    title: 'MEDICAL FACILITIES',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/1.jpg',
-  },
-  {
-    title: `LET'S BUILD SOME HOMES`,
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/2.jpg',
-  },
-  {
-    title: 'PURE WATER FOR POOR PEOPLE',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/3.jpg',
-  },
-  {
-    title: 'RAISE FUND FOR HEALTHY FOOD',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/4.jpg',
-  },
-  {
-    title: 'MASSIVE DONATION TO POOR',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/5.jpg',
-  },
-  {
-    title: 'PROMOTING THE RIGHTS OF CHILDREN',
-    description:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/6.jpg',
-  },
-];
-
-const ServiceCard = ({ item }: { item: serviceType }) => {
-  return (
-    <Card
-      hoverable
-      style={{ width: 340 }}
-      cover={
-        <img
-          alt='example'
-          // src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-          src={item.imageUrl}
-        />
-      }
-    >
-      <Typography.Title level={3}>{item.title}</Typography.Title>
-      <Typography.Text>{item.description}</Typography.Text>
-    </Card>
-  );
-};
-
-type social = {
-  instagram: string;
-  facebook: string;
-};
-
-type teamType = {
-  imageUrl: string;
-  name: string;
-  social: social;
-};
-
-const teamArray: Array<teamType> = [
-  {
-    imageUrl: '/images/team/1.jpg',
-    name: 'Hover',
-    social: {
-      facebook: 'test',
-      instagram: 'test1',
-    },
-  },
-  {
-    imageUrl: '/images/team/2.jpg',
-    name: 'Hover',
-    social: {
-      facebook: 'test',
-      instagram: 'test1',
-    },
-  },
-  {
-    imageUrl: '/images/team/3.jpg',
-    name: 'Hover',
-    social: {
-      facebook: 'test',
-      instagram: 'test1',
-    },
-  },
-  // {
-  //   imageUrl: '/images/team/4.jpg',
-  //   name: 'Hover',
-  //   social: {
-  //     facebook: 'test',
-  //     instagram: 'test1',
-  //   },
-  // },
-];
-
-const TeamCard = ({ item }: { item: teamType }) => {
-  return (
-    <Card
-      hoverable
-      style={{ width: 340 }}
-      cover={
-        <img
-          alt='example'
-          // src='https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-          src={item.imageUrl}
-        />
-      }
-    >
-      <Typography.Title level={3}>{item.name}</Typography.Title>
-      {/* <Typography.Text>{item.description}</Typography.Text> */}
-      <Flex gap='small'>
-        <Link href={item.social.instagram}>
-          <InstagramOutlined style={{ fontSize: 30 }} />
-        </Link>
-        <Link href={item.social.facebook}>
-          <FacebookOutlined style={{ fontSize: 30 }} />
-        </Link>
-      </Flex>
-    </Card>
   );
 };

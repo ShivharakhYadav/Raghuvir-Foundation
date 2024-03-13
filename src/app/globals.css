@@ -40,6 +40,13 @@ body {
   border-radius: 40px;
 }
 
+.main {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 @media (max-width: 1480px) {
 }
 
