@@ -23,10 +23,9 @@ body {
 .swiper .swiper-button-next {
   opacity: 0.3;
 }
-
+/* 
 ::-webkit-scrollbar {
   width: 0px;
-  /* background-color: #ffffff; */
 }
 
 ::-webkit-scrollbar-track {
@@ -45,17 +44,51 @@ body {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: space-between;
+} */
+.common-card {
+  width: 350px;
+}
+
+.service-card .ant-card-body {
+  padding: 15px;
+}
+
+.team-card .ant-card-body {
+  padding-top: 10px;
 }
 
 @media (max-width: 1480px) {
 }
 
+/* Ant Breakpoint */
 @media (max-width: 1199px) {
+  .common-card {
+    width: 310px;
+  }
 }
 
+/* Ant Breakpoint */
 @media (max-width: 991px) {
+  .common-card {
+    width: 270px;
+  }
 }
 
+/* Custom */
+@media (max-width: 900px) {
+  .common-card {
+    /* width: 240px; */
+  }
+}
+
+/* Custom */
+@media (max-width: 867px) {
+  .common-card {
+    width: 320px;
+  }
+}
+
+/* Ant Breakpoint */
 @media (max-width: 767px) {
   .desktop-menu {
     display: none;
@@ -64,19 +97,47 @@ body {
   .mobile-menu {
     display: block;
   }
+  .common-card {
+    width: 320px;
+  }
 }
 
+/* Custom */
+@media (max-width: 677px) {
+  .common-card {
+    width: 300px;
+  }
+}
+
+/* Custom */
 @media (max-width: 640px) {
+  .common-card {
+    width: 270px;
+  }
 }
 
-@media (max-width: 575px) {
+/* Ant Breakpoint */
+@media (max-width: 576px) {
+  .common-card {
+    width: 220px;
+  }
 }
 
+/* Ant Breakpoint */
 @media (max-width: 480px) {
+  .common-card {
+    width: 85%;
+  }
 }
 
+/* Custom */
 @media (max-width: 360px) {
+  .common-card {
+    width: 90%;
+  }
 }
+
+/* Custom */
 
 @media (max-width: 280px) {
 }

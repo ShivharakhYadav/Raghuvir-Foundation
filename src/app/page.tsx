@@ -63,7 +63,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Content>
+    <Content style={{ maxWidth: 1536 }}>
       {/* Desktop */}
       <div
         className='desktop-menu flex justify-between items-center'
@@ -103,144 +103,121 @@ const App: React.FC = () => {
         )}
       </div>
 
-      <Swiper
-        // install Swiper modules
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        slidesPerView={1}
-        spaceBetween={10}
-        navigation
-        // navigation={{
-        //   nextEl: '.swiper-button-next',
-        //   prevEl: '.swiper-button-prev',
-        //   enabled: true,
-        // }}
-        pagination={{ clickable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
-        loop
-        className='h-96 swiper'
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            // spaceBetween: 20,
-          },
-          480: {
-            slidesPerView: 1,
-            // spaceBetween: 30,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 40,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 50,
-          },
-        }}
-      >
-        <SwiperSlide>
-          <img
-            src='/1.jpg'
-            className='h-full w-full object-cover'
-            // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/2.jpg'
-            className='h-full w-full object-cover'
-            // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/1.jpg'
-            className='h-full w-full object-cover'
-            // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/2.jpg'
-            className='h-full w-full object-cover'
-            // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src='/1.jpg'
-            className='h-full w-full object-cover'
-            // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-          />
-        </SwiperSlide>
-
-        {/* <div className='swiper-button-prev'>
-          <button>Test</button>
+      <div>
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={1}
+          spaceBetween={10}
+          navigation
+          // navigation={{
+          //   nextEl: '.swiper-button-next',
+          //   prevEl: '.swiper-button-prev',
+          //   enabled: true,
+          // }}
+          pagination={{ clickable: true }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log('slide change')}
+          loop
+          className='h-96 swiper'
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              // spaceBetween: 20,
+            },
+            480: {
+              slidesPerView: 1,
+              // spaceBetween: 30,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+        >
+          <SwiperSlide>
+            <img
+              src='/1.jpg'
+              className='h-full w-full object-cover'
+              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src='/2.jpg'
+              className='h-full w-full object-cover'
+              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src='/1.jpg'
+              className='h-full w-full object-cover'
+              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src='/2.jpg'
+              className='h-full w-full object-cover'
+              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
+            />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img
+              src='/1.jpg'
+              className='h-full w-full object-cover'
+              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
+            />
+          </SwiperSlide>
+        </Swiper>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            gap: 20,
+          }}
+        >
+          {inspiredArray?.map((item) => (
+            <InspireCard item={item} key={item.title} />
+          ))}
         </div>
-        <div className='swiper-button-next'>
-          <button>Test</button>
-        </div> */}
-      </Swiper>
 
-      <div style={{ marginTop: 20, padding: '0 20px' }}>
-        <Row gutter={[16, 16]}>
-          {inspiredArray?.map((item) => {
-            return (
-              <Col
-                xs={24}
-                sm={12}
-                md={8}
-                lg={8}
-                xl={8}
-                xxl={8}
-                key={item.title}
-              >
-                <InspireCard item={item} />
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            gap: 20,
+          }}
+        >
+          {serviceArray?.map((item) => (
+            <ServiceCard item={item} key={item.title} />
+          ))}
+        </div>
 
-      {/* <div className='main'>
-        {inspiredArray?.map((item) => {
-          return <InspireCard item={item} />;
-        })}
-      </div> */}
-      <div style={{ marginTop: 20, padding: '0 20px' }}>
-        <Row gutter={[16, 16]}>
-          {serviceArray?.map((item) => {
-            return (
-              <Col
-                xs={24}
-                sm={12}
-                md={8}
-                lg={8}
-                xl={8}
-                xxl={8}
-                key={item.title}
-              >
-                <ServiceCard item={item} />
-              </Col>
-            );
-          })}
-        </Row>
-      </div>
-      {/* Our Team */}
-      <div style={{ marginTop: 20, padding: '0 20px' }}>
-        <Row gutter={[16, 16]}>
-          {teamArray?.map((item) => {
-            return (
-              <Col xs={24} sm={12} md={8} lg={8} xl={8} xxl={8} key={item.name}>
-                <TeamCard item={item} />
-              </Col>
-            );
-          })}
-        </Row>
+        {/* Our Team */}
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            gap: 20,
+          }}
+        >
+          {teamArray?.map((item) => (
+            <TeamCard item={item} key={item.name} />
+          ))}
+        </div>
       </div>
     </Content>
   );

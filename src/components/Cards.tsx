@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export const InspireCard = ({ item }: { item: inspireType }) => {
   return (
-    <Card style={{ textAlign: 'center', fontSize: 40, width: 320 }}>
+    <Card style={{ textAlign: 'center', fontSize: 40 }} className='common-card'>
       <div
         style={{
           height: 100,
@@ -31,7 +31,7 @@ export const ServiceCard = ({ item }: { item: serviceType }) => {
   return (
     <Card
       hoverable
-      style={{ width: 340 }}
+      className='common-card service card'
       cover={<img alt='example' src={item.imageUrl} />}
     >
       <Typography.Title level={3}>{item.title}</Typography.Title>
@@ -44,7 +44,7 @@ export const TeamCard = ({ item }: { item: teamType }) => {
   return (
     <Card
       hoverable
-      style={{ width: 340 }}
+      className='common-card team-card'
       cover={<img alt='example' src={item.imageUrl} />}
     >
       <Typography.Title level={3}>{item.name}</Typography.Title>

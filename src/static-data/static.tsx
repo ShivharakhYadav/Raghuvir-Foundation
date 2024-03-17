@@ -43,37 +43,37 @@ export const serviceArray: Array<serviceType> = [
     title: 'MEDICAL FACILITIES',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/1.jpg',
+    imageUrl: 'images/service/1.jpg',
   },
   {
     title: `LET'S BUILD SOME HOMES`,
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/2.jpg',
+    imageUrl: 'images/service/2.jpg',
   },
   {
     title: 'PURE WATER FOR POOR PEOPLE',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/3.jpg',
+    imageUrl: 'images/service/3.jpg',
   },
   {
     title: 'RAISE FUND FOR HEALTHY FOOD',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/4.jpg',
+    imageUrl: 'images/service/4.jpg',
   },
   {
     title: 'MASSIVE DONATION TO POOR',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/5.jpg',
+    imageUrl: 'images/service/5.jpg',
   },
   {
     title: 'PROMOTING THE RIGHTS OF CHILDREN',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa dolor',
-    imageUrl: '/service/6.jpg',
+    imageUrl: 'images/service/6.jpg',
   },
 ];
 
@@ -103,7 +103,7 @@ export const teamArray: Array<teamType> = [
     },
   },
   // {
-  //   imageUrl: '/images/team/4.jpg',
+  //   imageUrl: '/images/service/4.jpg',
   //   name: 'Hover',
   //   social: {
   //     facebook: 'test',
