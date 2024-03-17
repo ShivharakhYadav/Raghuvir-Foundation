@@ -6,7 +6,7 @@ import { StyleProvider } from '@ant-design/cssinjs';
 // const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Raghuvir Foundation',
+  title: 'Tailwind Practice',
   description: 'Social NGO Website',
 };
 

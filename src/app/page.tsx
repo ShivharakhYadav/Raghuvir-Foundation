@@ -257,7 +257,7 @@ const Title = () => {
         fontWeight: 'bold',
       }}
     >
-      Raghuvir Foundation
+      Tailwind Practice
     </Typography>
   );
 };
