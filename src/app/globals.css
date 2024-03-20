@@ -45,9 +45,6 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
 } */
-.common-card {
-  width: 350px;
-}
 
 .service-card .ant-card-body {
   padding: 15px;
@@ -57,35 +54,27 @@ body {
   padding-top: 10px;
 }
 
+.mw-350 {
+  max-width: 350px;
+}
+
 @media (max-width: 1480px) {
 }
 
 /* Ant Breakpoint */
 @media (max-width: 1199px) {
-  .common-card {
-    width: 310px;
-  }
 }
 
 /* Ant Breakpoint */
 @media (max-width: 991px) {
-  .common-card {
-    width: 270px;
-  }
 }
 
 /* Custom */
 @media (max-width: 900px) {
-  .common-card {
-    /* width: 240px; */
-  }
 }
 
 /* Custom */
 @media (max-width: 867px) {
-  .common-card {
-    width: 320px;
-  }
 }
 
 /* Ant Breakpoint */
@@ -97,44 +86,26 @@ body {
   .mobile-menu {
     display: block;
   }
-  .common-card {
-    width: 320px;
-  }
 }
 
 /* Custom */
 @media (max-width: 677px) {
-  .common-card {
-    width: 300px;
-  }
 }
 
 /* Custom */
 @media (max-width: 640px) {
-  .common-card {
-    width: 270px;
-  }
 }
 
 /* Ant Breakpoint */
 @media (max-width: 576px) {
-  .common-card {
-    width: 220px;
-  }
 }
 
 /* Ant Breakpoint */
 @media (max-width: 480px) {
-  .common-card {
-    width: 85%;
-  }
 }
 
 /* Custom */
 @media (max-width: 360px) {
-  .common-card {
-    width: 90%;
-  }
 }
 
 /* Custom */

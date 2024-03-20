@@ -2,19 +2,20 @@
 import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-import { Menu, Layout, Typography, Row, Col } from 'antd';
+//Antd Imports
+import { Menu, Layout, Typography, Row, Col, Flex } from 'antd';
 import type { MenuProps } from 'antd';
 
 // Import Swiper
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { SwiperOptions } from 'swiper/types';
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+
 // Static Data
 import { inspiredArray, serviceArray, teamArray } from '@/static-data/static';
 import { InspireCard, ServiceCard, TeamCard } from '@/components/Cards';
@@ -55,7 +56,8 @@ const App: React.FC = () => {
   const u = usePathname();
   const [current, setCurrent] = useState('home');
   const [menuShow, setShowMenu] = useState(false);
-  console.log('u.pathname', u);
+  // console.log('u.pathname', u);
+
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
     menuShow && setShowMenu(!menuShow);
@@ -87,7 +89,8 @@ const App: React.FC = () => {
         <div className='flex justify-between items-center'>
           <Title />
           <BarsOutlined
-            style={{ color: 'white', fontSize: 36 }}
+            // style={{ color: 'white', fontSize: 36 }}
+            className='text-white text-4xl'
             onClick={() => setShowMenu(!menuShow)}
           />
         </div>
@@ -180,12 +183,7 @@ const App: React.FC = () => {
           </SwiperSlide>
         </Swiper>
 
-        <div
-          style={{
-            marginTop: 20,
-            padding: '0 20px',
-          }}
-        >
+        <Flex vertical className='p-6' gap='middle'>
           <Row gutter={[16, 16]}>
             {inspiredArray?.map((item) => {
               return (
@@ -203,14 +201,7 @@ const App: React.FC = () => {
               );
             })}
           </Row>
-        </div>
 
-        <div
-          style={{
-            marginTop: 20,
-            padding: '0 20px',
-          }}
-        >
           <Row gutter={[16, 16]}>
             {serviceArray?.map((item) => {
               return (
@@ -228,15 +219,7 @@ const App: React.FC = () => {
               );
             })}
           </Row>
-        </div>
-        {/* Our Team */}
 
-        <div
-          style={{
-            marginTop: 20,
-            padding: '0 20px',
-          }}
-        >
           <Row gutter={[16, 16]}>
             {teamArray?.map((item) => {
               return (
@@ -254,7 +237,7 @@ const App: React.FC = () => {
               );
             })}
           </Row>
-        </div>
+        </Flex>
       </div>
     </Content>
   );
@@ -265,43 +248,14 @@ export default App;
 const Title = () => {
   return (
     <Typography
-      style={{
-        color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold',
-      }}
+      // style={{
+      //   color: 'white',
+      //   fontSize: 25,
+      //   fontWeight: 'bold',
+      // }}
+      className='text-white text-2xl font-bold'
     >
       Tailwind Practice
     </Typography>
   );
 };
-
-{
-  /* <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            gap: 20,
-          }}
-        >
-          {inspiredArray?.map((item) => (
-            <InspireCard item={item} key={item.title} />
-          ))}
-        </div> */
-}
-
-{
-  /* <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            gap: 20,
-          }}
-        >
-          {serviceArray?.map((item) => (
-            <ServiceCard item={item} key={item.title} />
-          ))}
-        </div> */
-}
