@@ -179,44 +179,81 @@ const App: React.FC = () => {
             />
           </SwiperSlide>
         </Swiper>
+
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            gap: 20,
+            marginTop: 20,
+            padding: '0 20px',
           }}
         >
-          {inspiredArray?.map((item) => (
-            <InspireCard item={item} key={item.title} />
-          ))}
+          <Row gutter={[16, 16]}>
+            {inspiredArray?.map((item) => {
+              return (
+                <Col
+                  xs={24}
+                  sm={12}
+                  md={8}
+                  lg={8}
+                  xl={8}
+                  xxl={8}
+                  key={item.title}
+                >
+                  <InspireCard item={item} />
+                </Col>
+              );
+            })}
+          </Row>
         </div>
 
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            gap: 20,
+            marginTop: 20,
+            padding: '0 20px',
           }}
         >
-          {serviceArray?.map((item) => (
-            <ServiceCard item={item} key={item.title} />
-          ))}
+          <Row gutter={[16, 16]}>
+            {serviceArray?.map((item) => {
+              return (
+                <Col
+                  xs={24}
+                  sm={12}
+                  md={8}
+                  lg={8}
+                  xl={8}
+                  xxl={8}
+                  key={item.title}
+                >
+                  <ServiceCard item={item} />
+                </Col>
+              );
+            })}
+          </Row>
         </div>
-
         {/* Our Team */}
+
         <div
           style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
-            gap: 20,
+            marginTop: 20,
+            padding: '0 20px',
           }}
         >
-          {teamArray?.map((item) => (
-            <TeamCard item={item} key={item.name} />
-          ))}
+          <Row gutter={[16, 16]}>
+            {teamArray?.map((item) => {
+              return (
+                <Col
+                  xs={24}
+                  sm={12}
+                  md={8}
+                  lg={8}
+                  xl={8}
+                  xxl={8}
+                  key={item.name}
+                >
+                  <TeamCard item={item} />
+                </Col>
+              );
+            })}
+          </Row>
         </div>
       </div>
     </Content>
@@ -238,3 +275,33 @@ const Title = () => {
     </Typography>
   );
 };
+
+{
+  /* <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            gap: 20,
+          }}
+        >
+          {inspiredArray?.map((item) => (
+            <InspireCard item={item} key={item.title} />
+          ))}
+        </div> */
+}
+
+{
+  /* <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            gap: 20,
+          }}
+        >
+          {serviceArray?.map((item) => (
+            <ServiceCard item={item} key={item.title} />
+          ))}
+        </div> */
+}

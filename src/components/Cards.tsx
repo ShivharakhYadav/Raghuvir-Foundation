@@ -5,7 +5,10 @@ import Link from 'next/link';
 
 export const InspireCard = ({ item }: { item: inspireType }) => {
   return (
-    <Card style={{ textAlign: 'center', fontSize: 40 }} className='common-card'>
+    <Card
+      style={{ textAlign: 'center', fontSize: 40, maxWidth: 350 }}
+      className='mx-auto'
+    >
       <div
         style={{
           height: 100,
@@ -31,8 +34,9 @@ export const ServiceCard = ({ item }: { item: serviceType }) => {
   return (
     <Card
       hoverable
-      className='common-card service card'
       cover={<img alt='example' src={item.imageUrl} />}
+      style={{ textAlign: 'center', fontSize: 40, maxWidth: 350 }}
+      className='mx-auto service-card'
     >
       <Typography.Title level={3}>{item.title}</Typography.Title>
       <Typography.Text>{item.description}</Typography.Text>
@@ -44,8 +48,10 @@ export const TeamCard = ({ item }: { item: teamType }) => {
   return (
     <Card
       hoverable
-      className='common-card team-card'
+      // className='common-card team-card'
       cover={<img alt='example' src={item.imageUrl} />}
+      style={{ textAlign: 'center', fontSize: 40, maxWidth: 350 }}
+      className='mx-auto team-card'
     >
       <Typography.Title level={3}>{item.name}</Typography.Title>
       {/* <Typography.Text>{item.description}</Typography.Text> */}
