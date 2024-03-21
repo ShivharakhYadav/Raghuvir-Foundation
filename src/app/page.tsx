@@ -23,7 +23,7 @@ import { BarsOutlined } from '@ant-design/icons';
 import Image from 'next/image';
 
 // Destructure
-const { Content } = Layout;
+const { Header, Footer, Content } = Layout;
 
 const items: MenuProps['items'] = [
   {
@@ -66,146 +66,152 @@ const App: React.FC = () => {
   };
 
   return (
-    <Content style={{ maxWidth: 1536 }}>
-      {/* Desktop */}
-      <div className='desktop-menu flex justify-between items-center p-5 sticky top-0 z-10 bg-color-001529'>
-        <Title />
-        <Menu
-          onClick={onClick}
-          selectedKeys={[current]}
-          mode='horizontal'
-          items={items}
-          className='test'
-          theme='dark'
-        />
-      </div>
-      {/* Mobile */}
-      <div className=' mobile-menu flex justify-between items-center  p-5 bg-color-001529'>
-        <div className='flex justify-between items-center'>
+    <Layout>
+      <Header className='sticky top-0 z-10 min-[320px]:px-0'>
+        {/* Desktop */}
+        <div className='desktop-menu flex justify-between items-center bg-color-001529'>
           <Title />
-          <BarsOutlined
-            className='text-white text-4xl'
-            onClick={() => setShowMenu(!menuShow)}
-          />
-        </div>
-        {menuShow && (
           <Menu
             onClick={onClick}
             selectedKeys={[current]}
-            mode='inline'
+            mode='horizontal'
             items={items}
             className='test'
             theme='dark'
           />
-        )}
-      </div>
+        </div>
+        {/* Mobile */}
+        <div className='mobile-menu flex justify-between items-center h-full bg-color-001529'>
+          <div className='flex justify-between items-center h-full min-[320px]:px-4'>
+            <Title />
+            <BarsOutlined
+              className='text-white text-4xl'
+              onClick={() => setShowMenu(!menuShow)}
+            />
+          </div>
+          {menuShow && (
+            <Menu
+              onClick={onClick}
+              selectedKeys={[current]}
+              mode='inline'
+              items={items}
+              className='test'
+              theme='dark'
+            />
+          )}
+        </div>
+      </Header>
+      <Content>
+        <div>
+          <Swiper
+            modules={[Navigation, Pagination, Scrollbar, A11y]}
+            slidesPerView={1}
+            spaceBetween={10}
+            navigation
+            pagination={{ clickable: true }}
+            onSwiper={(swiper) => console.log(swiper)}
+            onSlideChange={() => console.log('slide change')}
+            loop
+            className='h-96 swiper'
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+              },
+              480: {
+                slidesPerView: 1,
+              },
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 40,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 50,
+              },
+            }}
+          >
+            <SwiperSlide>
+              <img src='/1.jpg' className='h-full w-full object-cover' />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src='/2.jpg' className='h-full w-full object-cover' />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src='/1.jpg' className='h-full w-full object-cover' />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src='/2.jpg' className='h-full w-full object-cover' />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src='/1.jpg' className='h-full w-full object-cover' />
+            </SwiperSlide>
+          </Swiper>
 
-      <div>
-        <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          slidesPerView={1}
-          spaceBetween={10}
-          navigation
-          pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log('slide change')}
-          loop
-          className='h-96 swiper'
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-            },
-            480: {
-              slidesPerView: 1,
-            },
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 20,
-            },
-            768: {
-              slidesPerView: 2,
-              spaceBetween: 40,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 50,
-            },
-          }}
-        >
-          <SwiperSlide>
-            <img src='/1.jpg' className='h-full w-full object-cover' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/2.jpg' className='h-full w-full object-cover' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/1.jpg' className='h-full w-full object-cover' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/2.jpg' className='h-full w-full object-cover' />
-          </SwiperSlide>
-          <SwiperSlide>
-            <img src='/1.jpg' className='h-full w-full object-cover' />
-          </SwiperSlide>
-        </Swiper>
+          <Flex vertical className='p-6' gap='middle'>
+            <Row gutter={[16, 16]}>
+              {inspiredArray?.map((item) => {
+                return (
+                  <Col
+                    xs={24}
+                    sm={12}
+                    md={8}
+                    lg={8}
+                    xl={8}
+                    xxl={8}
+                    key={item.title}
+                  >
+                    <InspireCard item={item} />
+                  </Col>
+                );
+              })}
+            </Row>
 
-        <Flex vertical className='p-6' gap='middle'>
-          <Row gutter={[16, 16]}>
-            {inspiredArray?.map((item) => {
-              return (
-                <Col
-                  xs={24}
-                  sm={12}
-                  md={8}
-                  lg={8}
-                  xl={8}
-                  xxl={8}
-                  key={item.title}
-                >
-                  <InspireCard item={item} />
-                </Col>
-              );
-            })}
-          </Row>
+            <Row gutter={[16, 16]}>
+              {serviceArray?.map((item) => {
+                return (
+                  <Col
+                    xs={24}
+                    sm={12}
+                    md={8}
+                    lg={8}
+                    xl={8}
+                    xxl={8}
+                    key={item.title}
+                  >
+                    <ServiceCard item={item} />
+                  </Col>
+                );
+              })}
+            </Row>
 
-          <Row gutter={[16, 16]}>
-            {serviceArray?.map((item) => {
-              return (
-                <Col
-                  xs={24}
-                  sm={12}
-                  md={8}
-                  lg={8}
-                  xl={8}
-                  xxl={8}
-                  key={item.title}
-                >
-                  <ServiceCard item={item} />
-                </Col>
-              );
-            })}
-          </Row>
-
-          <Row gutter={[16, 16]}>
-            {teamArray?.map((item) => {
-              return (
-                <Col
-                  xs={24}
-                  sm={12}
-                  md={8}
-                  lg={8}
-                  xl={8}
-                  xxl={8}
-                  key={item.name}
-                >
-                  <TeamCard item={item} />
-                </Col>
-              );
-            })}
-          </Row>
-        </Flex>
-      </div>
-    </Content>
+            <Row gutter={[16, 16]}>
+              {teamArray?.map((item) => {
+                return (
+                  <Col
+                    xs={24}
+                    sm={12}
+                    md={8}
+                    lg={8}
+                    xl={8}
+                    xxl={8}
+                    key={item.name}
+                  >
+                    <TeamCard item={item} />
+                  </Col>
+                );
+              })}
+            </Row>
+          </Flex>
+        </div>
+      </Content>
+      <Footer>
+        <Typography.Text>Footer</Typography.Text>
+      </Footer>
+    </Layout>
   );
 };
 
