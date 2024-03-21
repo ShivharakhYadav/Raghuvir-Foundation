@@ -46,6 +46,9 @@ body {
   justify-content: space-between;
 } */
 
+.bg-color-001529 {
+  background-color: #001529;
+}
 .service-card .ant-card-body {
   padding: 15px;
 }

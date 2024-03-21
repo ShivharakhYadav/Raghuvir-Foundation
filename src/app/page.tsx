@@ -20,6 +20,7 @@ import 'swiper/css/scrollbar';
 import { inspiredArray, serviceArray, teamArray } from '@/static-data/static';
 import { InspireCard, ServiceCard, TeamCard } from '@/components/Cards';
 import { BarsOutlined } from '@ant-design/icons';
+import Image from 'next/image';
 
 // Destructure
 const { Content } = Layout;
@@ -67,10 +68,7 @@ const App: React.FC = () => {
   return (
     <Content style={{ maxWidth: 1536 }}>
       {/* Desktop */}
-      <div
-        className='desktop-menu flex justify-between items-center'
-        style={{ background: '#001529', padding: 20 }}
-      >
+      <div className='desktop-menu flex justify-between items-center p-5 sticky top-0 z-10 bg-color-001529'>
         <Title />
         <Menu
           onClick={onClick}
@@ -82,14 +80,10 @@ const App: React.FC = () => {
         />
       </div>
       {/* Mobile */}
-      <div
-        className=' mobile-menu flex justify-between items-center'
-        style={{ background: '#001529', padding: 20 }}
-      >
+      <div className=' mobile-menu flex justify-between items-center  p-5 bg-color-001529'>
         <div className='flex justify-between items-center'>
           <Title />
           <BarsOutlined
-            // style={{ color: 'white', fontSize: 36 }}
             className='text-white text-4xl'
             onClick={() => setShowMenu(!menuShow)}
           />
@@ -108,16 +102,10 @@ const App: React.FC = () => {
 
       <div>
         <Swiper
-          // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           slidesPerView={1}
           spaceBetween={10}
           navigation
-          // navigation={{
-          //   nextEl: '.swiper-button-next',
-          //   prevEl: '.swiper-button-prev',
-          //   enabled: true,
-          // }}
           pagination={{ clickable: true }}
           onSwiper={(swiper) => console.log(swiper)}
           onSlideChange={() => console.log('slide change')}
@@ -126,11 +114,9 @@ const App: React.FC = () => {
           breakpoints={{
             320: {
               slidesPerView: 1,
-              // spaceBetween: 20,
             },
             480: {
               slidesPerView: 1,
-              // spaceBetween: 30,
             },
             640: {
               slidesPerView: 2,
@@ -147,39 +133,19 @@ const App: React.FC = () => {
           }}
         >
           <SwiperSlide>
-            <img
-              src='/1.jpg'
-              className='h-full w-full object-cover'
-              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-            />
+            <img src='/1.jpg' className='h-full w-full object-cover' />
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src='/2.jpg'
-              className='h-full w-full object-cover'
-              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-            />
+            <img src='/2.jpg' className='h-full w-full object-cover' />
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src='/1.jpg'
-              className='h-full w-full object-cover'
-              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-            />
+            <img src='/1.jpg' className='h-full w-full object-cover' />
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src='/2.jpg'
-              className='h-full w-full object-cover'
-              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-            />
+            <img src='/2.jpg' className='h-full w-full object-cover' />
           </SwiperSlide>
           <SwiperSlide>
-            <img
-              src='/1.jpg'
-              className='h-full w-full object-cover'
-              // className='h-full w-full min-[420px]:object-cover sm:object-cover md:object-cover lg:object-cover xl:object-cover 2xl:object-cover'
-            />
+            <img src='/1.jpg' className='h-full w-full object-cover' />
           </SwiperSlide>
         </Swiper>
 
@@ -247,14 +213,7 @@ export default App;
 
 const Title = () => {
   return (
-    <Typography
-      // style={{
-      //   color: 'white',
-      //   fontSize: 25,
-      //   fontWeight: 'bold',
-      // }}
-      className='text-white text-2xl font-bold'
-    >
+    <Typography className='text-white text-2xl font-bold'>
       Tailwind Practice
     </Typography>
   );
