@@ -151,7 +151,7 @@ const App: React.FC = () => {
             </SwiperSlide>
           </Swiper>
 
-          <Flex vertical className='p-6' gap='middle'>
+          {/* <Flex vertical className='p-6' gap='middle'>
             <Row gutter={[16, 16]}>
               {inspiredArray?.map((item) => {
                 return (
@@ -205,11 +205,36 @@ const App: React.FC = () => {
                 );
               })}
             </Row>
-          </Flex>
+          </Flex> */}
         </div>
       </Content>
       <Footer>
-        <Typography.Text>Footer</Typography.Text>
+        <Flex>
+          <Flex vertical>
+            <Typography.Title>Tailwind Practice</Typography.Title>
+            <Typography.Text>
+              ipsum dolor sit amet, Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </Typography.Text>
+          </Flex>
+          <Flex vertical>
+            <Typography.Title>Tailwind Practice</Typography.Title>
+            <Typography.Text>
+              ipsum dolor sit amet, Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </Typography.Text>
+          </Flex>
+          <Flex vertical>
+            <Typography.Title>Tailwind Practice</Typography.Title>
+            <Typography.Text>
+              ipsum dolor sit amet, Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est
+              laborum.
+            </Typography.Text>
+          </Flex>
+        </Flex>
       </Footer>
     </Layout>
   );
