@@ -1,10 +1,22 @@
 'use client';
 import React, { useState } from 'react';
-import { usePathname } from 'next/navigation';
 
 //Antd Imports
-import { Menu, Layout, Typography, Row, Col, Flex } from 'antd';
-import type { MenuProps } from 'antd';
+import {
+  Menu,
+  Layout,
+  Typography,
+  Row,
+  Col,
+  Flex,
+  Input,
+  Button,
+  Form,
+  Space,
+  notification,
+  Divider,
+} from 'antd';
+import type { FormProps, MenuProps } from 'antd';
 
 // Import Swiper
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -19,8 +31,12 @@ import 'swiper/css/scrollbar';
 // Static Data
 import { inspiredArray, serviceArray, teamArray } from '@/static-data/static';
 import { InspireCard, ServiceCard, TeamCard } from '@/components/Cards';
-import { BarsOutlined } from '@ant-design/icons';
-import Image from 'next/image';
+import { BarsOutlined, MailFilled, MailOutlined } from '@ant-design/icons';
+
+// Third Party Imports
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaLocationDot } from 'react-icons/fa6';
+import { MdCall, MdEmail, MdAccessTime } from 'react-icons/md';
 
 // Destructure
 const { Header, Footer, Content } = Layout;
@@ -53,11 +69,24 @@ const items: MenuProps['items'] = [
   },
 ];
 
+type formType = {
+  email: string;
+  message: string;
+};
+
+const FormItem = Form.Item<formType>;
+
 const App: React.FC = () => {
-  const u = usePathname();
   const [current, setCurrent] = useState('home');
   const [menuShow, setShowMenu] = useState(false);
-  // console.log('u.pathname', u);
+
+  const [api, contextHolder] = notification.useNotification();
+
+  const showNotification = () => {
+    api['success']({
+      message: 'Thank you for join us.',
+    });
+  };
 
   const onClick: MenuProps['onClick'] = (e) => {
     console.log('click ', e);
@@ -65,9 +94,13 @@ const App: React.FC = () => {
     setCurrent(e.key);
   };
 
+  const handleSubmit: FormProps<formType>['onFinish'] = (values) => {
+    showNotification();
+  };
+
   return (
     <Layout>
-      <Header className='sticky top-0 z-10 min-[320px]:px-0'>
+      <Header className='sticky top-0 z-10 px-12 max-[640px]:px-4'>
         {/* Desktop */}
         <div className='desktop-menu flex justify-between items-center bg-color-001529'>
           <Title />
@@ -82,7 +115,7 @@ const App: React.FC = () => {
         </div>
         {/* Mobile */}
         <div className='mobile-menu flex justify-between items-center h-full bg-color-001529'>
-          <div className='flex justify-between items-center h-full min-[320px]:px-4'>
+          <div className='flex justify-between items-center h-full'>
             <Title />
             <BarsOutlined
               className='text-white text-4xl'
@@ -208,34 +241,118 @@ const App: React.FC = () => {
           </Flex> */}
         </div>
       </Content>
-      <Footer>
-        <Flex>
-          <Flex vertical>
-            <Typography.Title>Tailwind Practice</Typography.Title>
-            <Typography.Text>
-              ipsum dolor sit amet, Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
-            </Typography.Text>
+      <Footer className='px-0 py-0 bg-gray-800 text-white'>
+        <div className='flex justify-between px-12 py-6 sm:flex-row max-[640px]:px-4 flex-col gap-y-3.5'>
+          <div className='max-w-80'>
+            <div>
+              <p className='sm:text-2xl font-bold max[640px]:text-4xl'>
+                Tailwind Practice
+              </p>
+              <p className='text-xl text-gray-300'>
+                There are many variations of passages of Lorem Ipsum
+              </p>
+              <p className='text-gray-300 text-right'> - Lorem Ipsum</p>
+            </div>
+            <div className='flex space-x-4 mt-2'>
+              <a href='#' className='text-gray-300 hover:text-gray-400'>
+                <FaFacebook className='text-4xl' />
+              </a>
+              <a href='#' className='text-gray-300 hover:text-gray-400'>
+                <FaTwitter className='text-4xl' />
+              </a>
+              <a href='#' className='text-gray-300 hover:text-gray-400'>
+                <FaInstagram className='text-4xl' />
+              </a>
+            </div>
+          </div>
+          <Divider
+            type='vertical'
+            className='bg-white  top-0 sm:h-auto max-[640px]:h-0.5 m-0'
+          />
+          <Flex vertical gap='middle'>
+            <Flex align='center' gap='small'>
+              <FaLocationDot className='text-lg' />
+              <Typography.Text className='text-gray-300 text-base'>
+                1234 Example Street, City, Country
+              </Typography.Text>
+            </Flex>
+            <Flex align='center' gap='small'>
+              <MdCall className='text-lg' />
+              <Typography.Text className='text-gray-300 text-base'>
+                7874800000
+              </Typography.Text>
+            </Flex>
+            <Flex align='center' gap='small'>
+              <MdEmail className='text-lg' />
+              <Typography.Text className='text-gray-300 text-base'>
+                info.practice@gmail.com
+              </Typography.Text>
+            </Flex>
+            <Flex align='center' gap='small'>
+              <MdAccessTime className='text-lg' />
+              <Typography.Text className='text-gray-300 text-base'>
+                Mon - Fri 9:00 AM - 9:00 PM
+              </Typography.Text>
+            </Flex>
           </Flex>
-          <Flex vertical>
-            <Typography.Title>Tailwind Practice</Typography.Title>
-            <Typography.Text>
-              ipsum dolor sit amet, Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
-            </Typography.Text>
-          </Flex>
-          <Flex vertical>
-            <Typography.Title>Tailwind Practice</Typography.Title>
-            <Typography.Text>
-              ipsum dolor sit amet, Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est
-              laborum.
-            </Typography.Text>
-          </Flex>
-        </Flex>
+          <Divider
+            type='vertical'
+            className='bg-white  top-0 sm:h-auto max-[640px]:h-0.5 m-0'
+          />
+          <div>
+            <ul className='flex flex-col space-y-2'>
+              <li>
+                <a href='#' className='hover:text-gray-300 text-base'>
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href='#' className='hover:text-gray-300 text-base'>
+                  Terms of Service
+                </a>
+              </li>
+              <li>
+                <a href='#' className='hover:text-gray-300 text-base'>
+                  Contact Us
+                </a>
+              </li>
+            </ul>
+          </div>
+          <Divider
+            type='vertical'
+            className='bg-white  top-0 sm:h-auto max-[640px]:h-0.5 m-0'
+          />
+          <div>
+            <Form className='news-letter-form' onFinish={handleSubmit}>
+              <FormItem
+                name='email'
+                rules={[{ required: true, message: 'Please enter email.' }]}
+              >
+                <Input placeholder='Email' />
+              </FormItem>
+              <FormItem
+                name='message'
+                rules={[{ required: true, message: 'Please enter message.' }]}
+              >
+                <Input placeholder='Message' />
+              </FormItem>
+              <FormItem>
+                <Button
+                  type='default'
+                  htmlType='submit'
+                  className='mt-1 w-full text-gray-300'
+                >
+                  Submit
+                </Button>
+              </FormItem>
+            </Form>
+          </div>
+        </div>
+        <div className='py-4 bg-gray-700'>
+          <p className='text-center'>&copy; 2024 Shree Raghuvir Foundation</p>
+        </div>
       </Footer>
+      {contextHolder}
     </Layout>
   );
 };
