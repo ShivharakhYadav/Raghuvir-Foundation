@@ -76,7 +76,13 @@ type formType = {
 
 const FormItem = Form.Item<formType>;
 
+const values: formType = {
+  email: '',
+  message: '',
+};
+
 const App: React.FC = () => {
+  const [form] = Form.useForm();
   const [current, setCurrent] = useState('home');
   const [menuShow, setShowMenu] = useState(false);
 
@@ -96,11 +102,12 @@ const App: React.FC = () => {
 
   const handleSubmit: FormProps<formType>['onFinish'] = (values) => {
     showNotification();
+    form.resetFields();
   };
 
   return (
     <Layout>
-      <Header className='sticky top-0 z-10 px-12 max-[640px]:px-4'>
+      <Header className='sticky top-0 z-10 px-12 max-[640px]:px-6'>
         {/* Desktop */}
         <div className='desktop-menu flex justify-between items-center bg-color-001529'>
           <Title />
@@ -142,8 +149,8 @@ const App: React.FC = () => {
             spaceBetween={10}
             navigation
             pagination={{ clickable: true }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
+            // onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log('slide change')}
             loop
             className='h-96 swiper'
             breakpoints={{
@@ -242,7 +249,7 @@ const App: React.FC = () => {
         </div>
       </Content>
       <Footer className='px-0 py-0 bg-gray-800 text-white'>
-        <div className='flex justify-between px-12 py-6 sm:flex-row max-[640px]:px-4 flex-col gap-y-3.5'>
+        <div className='flex justify-between px-12 py-6 sm:flex-row max-[640px]:px-6 flex-col gap-y-3.5'>
           <div className='max-w-80'>
             <div>
               <p className='sm:text-2xl font-bold max[640px]:text-4xl'>
@@ -323,24 +330,28 @@ const App: React.FC = () => {
             className='bg-white  top-0 sm:h-auto max-[640px]:h-0.5 m-0'
           />
           <div>
-            <Form className='news-letter-form' onFinish={handleSubmit}>
+            <Form
+              form={form}
+              className='news-letter-form'
+              onFinish={handleSubmit}
+            >
               <FormItem
                 name='email'
                 rules={[{ required: true, message: 'Please enter email.' }]}
               >
-                <Input placeholder='Email' />
+                <Input placeholder='Email' className='max-[640px]:min-h-12' />
               </FormItem>
               <FormItem
                 name='message'
                 rules={[{ required: true, message: 'Please enter message.' }]}
               >
-                <Input placeholder='Message' />
+                <Input placeholder='Message' className='max-[640px]:min-h-12' />
               </FormItem>
               <FormItem>
                 <Button
                   type='default'
                   htmlType='submit'
-                  className='mt-1 w-full text-gray-300'
+                  className='mt-1 w-full text-gray-300 sm:text-base max-[640px]:min-h-12 text-xl'
                 >
                   Submit
                 </Button>
@@ -349,7 +360,8 @@ const App: React.FC = () => {
           </div>
         </div>
         <div className='py-4 bg-gray-700'>
-          <p className='text-center'>&copy; 2024 Shree Raghuvir Foundation</p>
+          {/* <p className='text-center'>&copy; 2024 Shree Raghuvir Foundation</p> */}
+          <p className='text-center'>&copy; 2024 Tailwind Practice</p>
         </div>
       </Footer>
       {contextHolder}
