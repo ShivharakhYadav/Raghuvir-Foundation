@@ -6,6 +6,45 @@ body {
   /* overflow-y: hidden; */
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.d1,
+.d3 {
+  flex: 0 0 auto; /* Do not grow, do not shrink, use auto size */
+}
+
+.d2 {
+  flex: 1; /* Grow to fill remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.d1,
+.d2,
+.d3 {
+  text-align: center;
+}
+
+.d1,
+.d3 {
+  background-color: #f0f0f0;
+}
+
+.d2 {
+  background-color: #e0e0e0;
+}
+
 .text-lg1 {
   font-size: 20px;
 }
