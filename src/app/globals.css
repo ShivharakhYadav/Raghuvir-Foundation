@@ -3,7 +3,10 @@
 @tailwind utilities;
 
 body {
-  /* overflow-y: hidden; */
+}
+
+.ant-btn {
+  background-color: #1677ff;
 }
 
 html,
@@ -17,32 +20,6 @@ body {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.d1,
-.d3 {
-  flex: 0 0 auto; /* Do not grow, do not shrink, use auto size */
-}
-
-.d2 {
-  flex: 1; /* Grow to fill remaining space */
-  display: flex;
-  flex-direction: column;
-}
-
-.d1,
-.d2,
-.d3 {
-  text-align: center;
-}
-
-.d1,
-.d3 {
-  background-color: #f0f0f0;
-}
-
-.d2 {
-  background-color: #e0e0e0;
 }
 
 .text-lg1 {
