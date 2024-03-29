@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 // import { Inter } from 'next/font/google';
 import './globals.css';
-import { AntdRegistry } from '@ant-design/nextjs-registry';
-import { StyleProvider } from '@ant-design/cssinjs';
-// const inter = Inter({ subsets: ['latin'] });
+import CustomHeader from '@/components/CustomHeader';
+import CustomFooter from '@/components/CustomFooter';
+import CustomContent from '@/components/CustomContent';
+import Layout from 'antd/es/layout/layout';
 
 export const metadata: Metadata = {
   title: 'Tailwind Practice',
@@ -17,10 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-      // className={inter.className}
-      >
-        {children}
+      <body>
+        <Layout>
+          <CustomHeader />
+          <CustomContent children={children} />
+          <CustomFooter />
+        </Layout>
       </body>
     </html>
   );

@@ -3,7 +3,23 @@
 @tailwind utilities;
 
 body {
-  /* overflow-y: hidden; */
+}
+
+.ant-btn {
+  background-color: #1677ff;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .text-lg1 {
@@ -49,6 +65,11 @@ body {
 .bg-color-001529 {
   background-color: #001529;
 }
+
+.bg-color-gray {
+  background-color: rgb(31 41 55 / 1) !important;
+}
+
 .service-card .ant-card-body {
   padding: 15px;
 }
@@ -59,6 +80,16 @@ body {
 
 .mw-350 {
   max-width: 350px;
+}
+
+.ant-form-item-explain-error::before {
+  content: '*';
+  color: red;
+  margin-right: 5px;
+}
+
+.news-letter-form .ant-form-item-explain-error {
+  color: #ffffff;
 }
 
 @media (max-width: 1480px) {
@@ -109,6 +140,9 @@ body {
 
 /* Custom */
 @media (max-width: 360px) {
+  .header {
+    padding: 0 10px !important;
+  }
 }
 
 /* Custom */
