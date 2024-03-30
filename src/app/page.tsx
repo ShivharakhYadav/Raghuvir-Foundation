@@ -145,34 +145,54 @@ const App: React.FC = () => {
             );
           })}
         </Row>
-
-        <Row gutter={[16, 16]}>
-          {serviceArray?.map((item) => {
-            return (
-              <Col
-                xs={24}
-                sm={12}
-                md={8}
-                lg={8}
-                xl={8}
-                xxl={8}
-                key={item.title}
-              >
-                <ServiceCard item={item} />
-              </Col>
-            );
-          })}
-        </Row>
-
-        <Row gutter={[16, 16]}>
-          {teamArray?.map((item) => {
-            return (
-              <Col xs={24} sm={12} md={8} lg={8} xl={8} xxl={8} key={item.name}>
-                <TeamCard item={item} />
-              </Col>
-            );
-          })}
-        </Row>
+        <div>
+          <div className='text-center mb-4'>
+            <Typography.Title level={3}>Our Services</Typography.Title>
+            <Typography.Text className='text-base'>
+              Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Maxime
+              Totam Quo, Ducimus Aliquid Quisquam Minima Perspiciatis
+              Repellendus, Minus Tenetur Reiciendis Quis? Consequatur
+              Perferendis Deleniti, Rerum Delectus Consectetur Modi Praesentium
+              Deserunt.
+            </Typography.Text>
+          </div>
+          <Row gutter={[16, 16]}>
+            {serviceArray?.map((item) => {
+              return (
+                <Col
+                  xs={24}
+                  sm={12}
+                  md={8}
+                  lg={8}
+                  xl={8}
+                  xxl={8}
+                  key={item.title}
+                >
+                  <ServiceCard item={item} />
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
+        <div>
+          <Row gutter={[16, 16]}>
+            {teamArray?.map((item) => {
+              return (
+                <Col
+                  xs={24}
+                  sm={12}
+                  md={8}
+                  lg={8}
+                  xl={8}
+                  xxl={8}
+                  key={item.name}
+                >
+                  <TeamCard item={item} />
+                </Col>
+              );
+            })}
+          </Row>
+        </div>
       </Flex>
     </div>
   );
