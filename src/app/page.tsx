@@ -203,7 +203,7 @@ export default App;
 const Title = () => {
   return (
     <Typography className='text-white text-2xl font-bold'>
-      Tailwind Practice
+      Raghuvir Foundation
     </Typography>
   );
 };
