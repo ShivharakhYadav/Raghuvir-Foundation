@@ -69,7 +69,7 @@ const CustomFooter = () => {
             // className='max-w-80'
             >
               <div className='max-[640px]:text-center'>
-                <p className='text-2xl font-bold'>Raghuvir Foundation</p>
+                <p className='text-2xl font-bold'>Shree Raghuvir Foundation</p>
                 <p className='text-xl text-gray-300'>
                   There are many variations of passages of Lorem Ipsum
                 </p>
@@ -211,8 +211,8 @@ const CustomFooter = () => {
       </div>
       <div className='flex justify-between  sm:flex-row max-[640px]:px-6 flex-col gap-y-3.5'></div>
       <div className='py-4 bg-gray-700'>
-        {/* <p className='text-center'>&copy; 2024 Shree Raghuvir Foundation</p> */}
-        <p className='text-center'>&copy; 2024 Raghuvir Foundation</p>
+        {/* <p className='text-center'>&copy; 2024 Shree Shree Raghuvir Foundation</p> */}
+        <p className='text-center'>&copy; 2024 Shree Raghuvir Foundation</p>
       </div>
       {contextHolder}
     </Footer>

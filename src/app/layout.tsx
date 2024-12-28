@@ -7,18 +7,18 @@
 // import Layout from 'antd/es/layout/layout';
 
 // export const metadata: Metadata = {
-//   title: 'Raghuvir Foundation',
+//   title: 'Shree Raghuvir Foundation',
 //   description:
 //     'Empowering communities through social initiatives. Discover more about our programs, success stories, and how you can get involved.',
 //   keywords:
-//     'NGO, social work, community service, charity, foundation, nonprofit organization, volunteer, Raghuvir Foundation',
+//     'NGO, social work, community service, charity, foundation, nonprofit organization, volunteer, Shree Raghuvir Foundation',
 //   authors: {
-//     name: 'Raghuvir Foundation',
+//     name: 'Shree Raghuvir Foundation',
 //     url: 'https://raghuvir-foundation.vercel.app/',
 //   },
 //   viewport: 'width=device-width, initial-scale=1',
 //   openGraph: {
-//     title: 'Raghuvir Foundation - Empowering Communities',
+//     title: 'Shree Raghuvir Foundation - Empowering Communities',
 //     description:
 //       'Learn about our mission to create impactful change in communities through social initiatives and charitable work.',
 //     url: 'https://raghuvir-foundation.vercel.app/',
@@ -28,7 +28,7 @@
 //         url: 'https://www.raghuvirfoundation.org/og-image.jpg',
 //         width: 1200,
 //         height: 630,
-//         alt: 'Raghuvir Foundation Banner',
+//         alt: 'Shree Raghuvir Foundation Banner',
 //       },
 //     ],
 //   },
@@ -36,7 +36,7 @@
 //     card: 'summary_large_image',
 //     site: '@RaghuvirFoundation',
 //     creator: '@RaghuvirFoundation',
-//     title: 'Raghuvir Foundation',
+//     title: 'Shree Raghuvir Foundation',
 //     description:
 //       'Join hands with us to make a difference in society through our various initiatives and programs.',
 //     images: 'https://www.raghuvirfoundation.org/og-image.jpg',
@@ -45,7 +45,7 @@
 //     { name: 'robots', content: 'index, follow' },
 //     { name: 'language', content: 'English' },
 //     { name: 'theme-color', content: '#ffffff' },
-//     { name: 'copyright', content: 'Raghuvir Foundation © 2024' },
+//     { name: 'copyright', content: 'Shree Raghuvir Foundation © 2024' },
 //   ],
 // };
 
@@ -63,7 +63,7 @@
 //           {JSON.stringify({
 //             '@context': 'https://schema.org',
 //             '@type': 'Organization',
-//             name: 'Raghuvir Foundation',
+//             name: 'Shree Raghuvir Foundation',
 //             url: 'https://www.raghuvirfoundation.org',
 //             logo: 'https://www.raghuvirfoundation.org/logo.png',
 //             sameAs: [
@@ -104,17 +104,17 @@ import CustomContent from '@/components/CustomContent';
 import Layout from 'antd/es/layout/layout';
 
 export const metadata: Metadata = {
-  title: 'Raghuvir Foundation',
+  title: 'Shree Raghuvir Foundation',
   description:
     'Empowering communities through social initiatives. Discover more about our programs, success stories, and how you can get involved.',
   keywords:
-    'NGO, social work, community service, charity, foundation, nonprofit organization, volunteer, Raghuvir Foundation',
+    'NGO, social work, community service, charity, foundation, nonprofit organization, volunteer, Shree Raghuvir Foundation',
   authors: {
-    name: 'Raghuvir Foundation',
+    name: 'Shree Raghuvir Foundation',
     url: 'https://raghuvir-foundation.vercel.app/',
   },
   openGraph: {
-    title: 'Raghuvir Foundation - Empowering Communities',
+    title: 'Shree Raghuvir Foundation - Empowering Communities',
     description:
       'Learn about our mission to create impactful change in communities through social initiatives and charitable work.',
     url: 'https://raghuvir-foundation.vercel.app/',
@@ -124,7 +124,7 @@ export const metadata: Metadata = {
         url: 'https://raghuvir-foundation.vercel.app/favicon.ico',
         width: 1200,
         height: 630,
-        alt: 'Raghuvir Foundation Banner',
+        alt: 'Shree Raghuvir Foundation Banner',
       },
     ],
   },
@@ -132,7 +132,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@RaghuvirFoundation',
     creator: '@RaghuvirFoundation',
-    title: 'Raghuvir Foundation',
+    title: 'Shree Raghuvir Foundation',
     description:
       'Join hands with us to make a difference in society through our various initiatives and programs.',
     images: 'https://raghuvir-foundation.vercel.app/favicon.ico',
@@ -155,14 +155,14 @@ export default function RootLayout({
         <meta name='robots' content='index, follow' />
         <meta name='language' content='English' />
         <meta name='theme-color' content='#ffffff' />
-        <meta name='copyright' content='Raghuvir Foundation © 2024' />
+        <meta name='copyright' content='Shree Raghuvir Foundation © 2024' />
         <link rel='icon' href='/favicon.ico' />
         <link rel='canonical' href='https://raghuvir-foundation.vercel.app/' />
         <script type='application/ld+json'>
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'Raghuvir Foundation',
+            name: 'Shree Raghuvir Foundation',
             url: 'https://raghuvir-foundation.vercel.app/',
             logo: 'https://raghuvir-foundation.vercel.app/favicon.ico',
             sameAs: [

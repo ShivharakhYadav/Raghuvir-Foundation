@@ -101,7 +101,7 @@ export default CustomHeader;
 const Title = () => {
   return (
     <Typography className='text-white text-2xl font-bold'>
-      Raghuvir Foundation
+      Shree Raghuvir Foundation
     </Typography>
   );
 };
